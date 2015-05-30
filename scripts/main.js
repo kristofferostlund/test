@@ -33,3 +33,20 @@ function isOldIPhone() {
 function isNewIPhone() {
   return /iphone; cpu iphone os [8-9]/i.test(uaString);
 }
+
+var isPhoneElement = document.getElementById('isPhone')
+  , uaStringElement = document.getElementById('uaString');
+
+if (isAndroid()) {
+  isPhoneElement.innerText = "This is an Android device.";
+} else if (isOldIPhone()) {
+  isPhoneElement.innerText = "This is an older iPhone (up to iOS 7).";
+} else if (isNewIPhone()) {
+  isPhoneElement.innerText = "This is an older iPhone (iOS 8 and above).";
+} else if (isWinPhone()) {
+  isPhoneElement.innerText = "This is a Windows Phone device.";
+} else {
+  isPhoneElement.innerText = "Hopefully you're not on a phone, otherwise I've made a mistake.";
+}
+
+uaStringElement.innerText = uaString;
